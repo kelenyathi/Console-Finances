@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Weather Dashboard</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-6 offset-md-3">
+        <h1 class="text-center mb-4">Weather Dashboard</h1>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 text-left">
+        <form>
+          <div class="form-group">
+            <label for="search_bar">Enter a City Name:</label>
+            <input type="text-" class="form-control" id="search_bar">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+  
+      <div class="col-sm-6 text-right">
+        <h2 id="name_of_city"></h2>
+        <img id="today_icon_div">
+        <p id="today_temp"></p>
+        <p id="today_humidity"></p>
+        <p id="today_wind_speed"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <div class="card">
+        <h4>5-Day Forecast</h4>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card">
+        <h5 id="0date" class="card"></h5>
+        <img class="card-img-top" id="0five_day_icon">
+        <div class="card-body">
+          <p class="card-text" id="0five_day_temp"></p>
+          <p class="card-text" id="0five_day_humidity"></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card">
+        <h5 id="1date" class="card"></h5>
+        <img class="card-img-top" id="1five_day_icon">
+        <div class="card-body">
+          <p class="card-text" id="1five_day_temp"></p>
+          <p class="card-text" id="1five_day_humidity"></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card">
+        <h5 id="2date" class="card"></h5>
+        <img class="card-img-top" id="2five_day_icon">
+        <div class="card-body">
+          <p class="card-text" id="2five_day_temp"></p>
+          <p class="card-text" id="2five_day_humidity"></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card">
+        <h5 id="3date" class="card"></h5>
+        <img class="card-img-top" id="3five_day_icon">
+        <div class="card-body">
+          <p class="card-text" id="3five_day_temp"></p>
+          <p class="card-text" id="3five_day_humidity"></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card">
+        <h5 id="4date" class="card"></h5>
+        <img class="card-img-top" id="4five_day_icon">
+        <div class="card-body">
+          <p class="card-text" id="4five_day_temp"></p>
+          <p class="card-text" id="4five_day_humidity"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src=" https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js">
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>
