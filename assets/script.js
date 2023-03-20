@@ -1,55 +1,52 @@
 $(document).ready(function () {
-    var APIkey = "&appid=d797d3b4dda1d3b740beee56c7305317";
+    var APIkey = "&appid=ef992135dd66d3398d3044ce7657ed1e";
     var currenturl = "https://api.openweathermap.org/data/2.5/weather?q=";
     var url = "https://api.openweathermap.org/data/2.5/forecast?q=";
-    var lat;
-    var lon;
 
-    // Handle form submission
+
+
     $("form").submit(function (event) {
         event.preventDefault();
         var city = $("#search_bar").val().trim();
 
-        // Store the entered city in local storage
+
         var cities = JSON.parse(localStorage.getItem("cities")) || [];
         cities.push(city);
         localStorage.setItem("cities", JSON.stringify(cities));
 
-        // Display the search history of the user
+        // Search history 
         displaySearchHistory();
 
-        // Get the current weather data for the entered city
+        // Current weather 
         $.ajax({
-            url: currenturl + city + "&units=imperial" + APIkey,
+            url: currenturl + city + "&units=metric" + APIkey,
             method: "GET"
         }).then(function (response) {
-            // Get the coordinates of the entered city
+
+            // Coordinates
             lat = response.coord.lat;
             lon = response.coord.lon;
 
             // Update the HTML elements that display the current weather conditions with the extracted weather data
             $("#name_of_city").text(response.name);
-            $("#today_temp").text("Temperature: " + response.main.temp + "F");
-            $("#today_humidity").text("Humidity: " + response.main.humidity + "%");
+            $("#today_temp").text("Temperature: " + response.main.temp + "°C");
             $("#today_wind_speed").text("Wind Speed: " + response.wind.speed + " MPH");
+            $("#today_humidity").text("Humidity: " + response.main.humidity + "%");
+       
             $("#today_icon_div").attr("src", "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
 
             // Get the 5-day forecast data for the entered city
             $.ajax({
-                url: url + city + "&units=imperial" + APIkey,
+                url: url + city + "&units=metric" + APIkey,
                 method: "GET"
             }).then(function (response) {
                 // Update the HTML elements that display the 5-day forecast with the extracted weather data
                 for (var i = 0; i < 5; i++) {
-                    $("#" + i + "date").text(moment().add(i + 1, 'days').format("MM/DD/YYYY"));
-                    $("#" + i + "five_day_temp").text("Temperature: " + response.list[i].main.temp + "F");
+                    $("#" + i + "date").text(moment().add(i + 1, 'days').format("DD/MM/YYYY"));
+                    $("#" + i + "five_day_temp").text("Temperature: " + response.list[i].main.temp + "°C");
                     $("#" + i + "five_day_humidity").text("Humidity: " + response.list[i].main.humidity + "%");
                     $("#" + i + "five_day_icon").attr("src", "http://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png");
                 }
-
-
-
-
 
             });
         });
@@ -80,7 +77,7 @@ $(document).ready(function () {
             console.log(response);
             // Update the HTML elements that display the current weather conditions with the extracted weather data
             $("#name_of_city").text(response.name);
-            $("#today_temp").text("Temperature: " + response.main.temp + "°F");
+            $("#today_temp").text("Temperature: " + response.main.temp + "°C");
             $("#today_humidity").text("Humidity: " + response.main.humidity + "%");
             $("#today_wind_speed").text("Wind Speed: " + response.wind.speed + " MPH");
             $("#today_icon_div").attr("src", "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
@@ -97,8 +94,8 @@ $(document).ready(function () {
                 console.log(response);
                 // Update the HTML elements that display the 5-day forecast with the extracted weather data
                 for (var i = 0; i < 5; i++) {
-                    $("#" + i + "date").text(moment().add(i + 1, 'days').format("MM/DD/YYYY"));
-                    $("#" + i + "five_day_temp").text("Temperature: " + response.list[i].main.temp + "°F");
+                    $("#" + i + "date").text(moment().add(i + 1, 'days').format("DD/MM/YYYY"));
+                    $("#" + i + "five_day_temp").text("Temperature: " + response.list[i].main.temp + "°C");
                     $("#" + i + "five_day_humidity").text("Humidity: " + response.list[i].main.humidity + "%");
                     $("#" + i + "five_day_icon").attr("src", "http://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png");
                 }
@@ -106,4 +103,3 @@ $(document).ready(function () {
         });
     });
 })
-
