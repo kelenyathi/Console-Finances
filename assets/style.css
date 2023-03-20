@@ -8,3 +8,7 @@
 body {
   background-image: linear-gradient(to bottom, #5f898b, #769ec5);
 }
+
+#daycontainer {
+  display:none;
+}
