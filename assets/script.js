@@ -3,46 +3,8 @@ $(document).ready(function () {
     var currenturl = "https://api.openweathermap.org/data/2.5/weather?q=";
     var url = "https://api.openweathermap.org/data/2.5/forecast?q=";
 
-
-
         // Search history 
         displaySearchHistory();
-
-        // Current weather 
-        // $.ajax({
-        //     url: currenturl + city + "&units=metric" + APIkey,
-        //     method: "GET"
-        // }).then(function (response) {
-
-           
-
-        //     // Update the HTML elements that display the current weather conditions with the extracted weather data
-        //     $("#name_of_city").text(response.name);
-        //     $("#today_temp").text("Temperature: " + response.main.temp + "°C");
-        //     $("#today_wind_speed").text("Wind Speed: " + response.wind.speed + " MPH");
-        //     $("#today_humidity").text("Humidity: " + response.main.humidity + "%");
-       
-        //     $("#today_icon_div").attr("src", "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
-
-        //      // Coordinates
-        //      lat = response.coord.lat;
-        //      lon = response.coord.lon;
-             
-        //     // Get the 5-day forecast data for the entered city
-        //     $.ajax({
-        //         url: url + city + "&units=metric" + APIkey,
-        //         method: "GET"
-        //     }).then(function (response) {
-        //         // Update the HTML elements that display the 5-day forecast with the extracted weather data
-        //         for (var i = 0; i < 5; i++) {
-        //             $("#" + i + "date").text(moment().add(i + 1, 'days').format("DD/MM/YYYY"));
-        //             $("#" + i + "five_day_temp").text("Temperature: " + response.list[i].main.temp + "°C");
-        //             $("#" + i + "five_day_humidity").text("Humidity: " + response.list[i].main.humidity + "%");
-        //             $("#" + i + "five_day_icon").attr("src", "http://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png");
-        //         }
-
-        //     });
-        // });
     });
 
     // Display the search history of the user with clickable links to display the current and future weather conditions for that city

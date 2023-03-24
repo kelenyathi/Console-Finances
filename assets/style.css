@@ -3,10 +3,9 @@
   right: 4;
 }
 
-
 /* Background */
 body {
-  background-image: linear-gradient(to bottom, #5f898b, #769ec5);
+  background-image: linear-gradient(to bottom, #647b7c, #647b7c);
 }
 
 #daycontainer {
